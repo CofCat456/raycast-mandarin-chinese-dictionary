@@ -1,0 +1,3 @@
+# Chinese dictionary
+
+Chinese dictionary
