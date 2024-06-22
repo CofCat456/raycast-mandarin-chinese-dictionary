@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-import { getPreferenceValues, List } from "@raycast/api";
+import { Action, ActionPanel, getPreferenceValues, Icon, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 
 import { DictDetail } from "./DictDetail";
 
 import { useDebouncedValue } from "../logic/hooks";
 
-import _testData from "../data/test.json";
 import { WordData } from "../logic/types";
 
 export const Main = () => {
@@ -34,12 +33,32 @@ export const Main = () => {
       isShowingDetail={isShowingDetail}
       searchText={input}
       onSearchTextChange={setInput}
+      actions={
+        <ActionPanel>
+          <Action.OpenInBrowser
+            title="Open GitHub"
+            url="https://github.com/CofCat456/raycast-chinese-dictionary"
+            icon={Icon.Code}
+          />
+        </ActionPanel>
+      }
     >
       {result != null ? (
         <List.Item
           title={result.title}
           accessories={[{ text: result.Field }]}
           detail={<DictDetail heteronyms={result.concise_dict.heteronyms} />}
+          actions={
+            <ActionPanel>
+              <ActionPanel.Section>
+                <Action.OpenInBrowser
+                  title="Open in Web"
+                  shortcut={{ modifiers: ["opt"], key: "enter" }}
+                  url={`https://pedia.cloud.edu.tw/Entry/Detail?title=${encodeURIComponent(result.title)}`}
+                />
+              </ActionPanel.Section>
+            </ActionPanel>
+          }
         />
       ) : null}
     </List>
