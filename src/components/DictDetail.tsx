@@ -5,9 +5,9 @@ import { List } from "@raycast/api";
 import { Dict, DictType } from "../logic/types";
 
 function splitDef(test: string) {
-  const [explain, example] = test.split("。");
+  const [explain, example] = test.split("[例]");
 
-  return `${explain}。\n\n------\n\n${example}`;
+  return `${explain}\n\n------\n\n[例]${example}`;
 }
 
 export const DictDetail: FC<Dict<DictType.Concise>> = ({ heteronyms }) => {
