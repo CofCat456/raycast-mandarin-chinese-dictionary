@@ -26,6 +26,12 @@ export const Main = () => {
     },
   );
 
+  const heteronyms = result
+    ? Object.hasOwn(result, "concise_dict")
+      ? result.concise_dict.heteronyms
+      : result.revised_dict.heteronyms
+    : null;
+
   return (
     <List
       throttle
@@ -47,7 +53,7 @@ export const Main = () => {
         <List.Item
           title={result.title}
           accessories={[{ text: result.Field }]}
-          detail={<DictDetail heteronyms={result.concise_dict.heteronyms} />}
+          detail={heteronyms != null ? <DictDetail heteronyms={heteronyms} /> : null}
           actions={
             <ActionPanel>
               <ActionPanel.Section>

@@ -45,51 +45,12 @@ export interface Heteronym {
   pinyin: string;
 }
 
-/**
- * Defines a heteronym in the concise dictionary (定義簡明字典中的異形同義詞)
- */
-export interface ConciseHeteronym {
+export interface Dict {
   /**
-   * Order (順序)
+   * List of heteronyms (異形同義詞列表)
    */
-  order: string;
-  /**
-   * Word ID (詞彙ID)
-   */
-  strWordId: string;
-  /**
-   * List of definitions for the word (詞彙的定義列表)
-   */
-  definitions: Definition[];
-  /**
-   * Bopomofo phonetic notation (注音符號)
-   */
-  bopomofo: string;
-  /**
-   * Pinyin (拼音)
-   */
-  pinyin: string;
-  /**
-   * Audio file name (音頻檔案名稱)
-   */
-  "audio-all_name": string;
+  heteronyms: Heteronym[];
 }
-
-export type Dict<T> = T extends DictType.Concise
-  ? {
-      /**
-       * List of heteronyms (異形同義詞列表)
-       */
-      heteronyms: ConciseHeteronym[];
-    }
-  : T extends DictType.Revised
-    ? {
-        /**
-         * List of heteronyms (異形同義詞列表)
-         */
-        heteronyms: Heteronym[];
-      }
-    : unknown;
 
 /**
  * Defines word data (定義詞彙資料)
@@ -98,7 +59,7 @@ export interface WordData {
   /**
    * Revised dictionary data (修訂字典資料)
    */
-  revised_dict: Dict<DictType.Revised>;
+  revised_dict: Dict;
   /**
    * Word title (詞彙標題)
    */
@@ -106,7 +67,7 @@ export interface WordData {
   /**
    * Concise dictionary data (簡明字典資料)
    */
-  concise_dict: Dict<DictType.Concise>;
+  concise_dict: Dict;
   /**
    * Field (領域)
    */
