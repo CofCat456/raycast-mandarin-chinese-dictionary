@@ -1,9 +1,9 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "chinese-dictionary",
-  "title": "Chinese dictionary",
-  "description": "Chinese dictionary",
-  "icon": "command-icon.png",
+  "title": "Chinese Dictionary",
+  "description": "Chinese Dictionary",
+  "icon": "icon.png",
   "author": "CofCat",
   "categories": [
     "Documentation"
@@ -12,7 +12,7 @@
   "commands": [
     {
       "name": "chinese-dictionary",
-      "title": "Chinese dictionary",
+      "title": "Chinese Dictionary",
       "description": "Find the textual definition",
       "mode": "view"
     }
