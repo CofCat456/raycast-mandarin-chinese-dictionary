@@ -27,9 +27,9 @@ export const Main = () => {
   );
 
   const heteronyms = result
-    ? Object.hasOwn(result, "concise_dict")
-      ? result.concise_dict.heteronyms
-      : result.revised_dict.heteronyms
+    ? Object.hasOwn(result, "revised_dict")
+      ? result.revised_dict.heteronyms
+      : result.concise_dict.heteronyms
     : null;
 
   return (
