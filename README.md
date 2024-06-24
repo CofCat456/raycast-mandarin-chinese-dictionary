@@ -7,7 +7,7 @@
 <h1 align="center">Chinese dictionary</sup></h1>
 
 <p align="center">
-This is a Raycast extension that explains text using a Chinese dictionary.
+A Raycast extension that explains text using a Chinese dictionary.
 </p>
 
 <img width="862" src="https://github.com/CofCat456/raycast-chinese-dictionary/assets/93901409/0c5ee7a3-d7ce-4fdd-897d-cf9d8bdb51e7">
